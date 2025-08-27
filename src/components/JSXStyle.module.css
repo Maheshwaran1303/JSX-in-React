@@ -1,0 +1,12 @@
+.container {
+    background-color: orangered;
+    color: white;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.container ul li {
+    color: pink;
+}

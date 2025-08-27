@@ -1,0 +1,12 @@
+.container {
+    background-color: green;
+    color: white;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.container ul li {
+    color: yellow;
+}
