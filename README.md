@@ -1,163 +1,342 @@
-**Embedding Expressions in JSX** – one of the **core foundations of React**.
+**Embedding Expressions in JSX** -- one of the **core foundations of React**.
 
-# 🔹 1. What is JSX Recap?
+* * * * *
 
-- JSX = **JavaScript XML**.
-- It allows us to **write HTML inside JavaScript**.
-- But JSX is **not a template language** — it’s just **syntactic sugar** for React.createElement.
+🔹 1. What is JSX Recap?
+========================
 
-# 🔹 2. Embedding Expressions in JSX
+-   JSX = **JavaScript XML**.
 
-- In JSX, you can **embed any JavaScript expression** inside **curly braces { }**.
-- Expressions can be:✅ Variables✅ Functions✅ Math operations✅ Conditional statements (ternary operator)✅ Function calls
+-   It allows us to **write HTML inside JavaScript**.
 
-# 🔹 3. Examples
+-   But JSX is **not a template language** --- it's just **syntactic sugar** for `React.createElement`.
+
+* * * * *
+
+🔹 2. Embedding Expressions in JSX
+==================================
+
+-   In JSX, you can **embed any JavaScript expression** inside **curly braces `{ }`**.
+
+-   Expressions can be:\
+    ✅ Variables\
+    ✅ Functions\
+    ✅ Math operations\
+    ✅ Conditional statements (ternary operator)\
+    ✅ Function calls
+
+* * * * *
+
+🔹 3. Examples
+==============
 
 ### ✅ 1. Embedding Variables
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML` function Greeting() {    const name = "Maheshwaran";    return   Hello, {name} 👋 ================  ;  } `
+```
+function Greeting() {
+  const name = "Maheshwaran";
+  return <h1>Hello, {name} 👋</h1>;
+}
+
+```
 
 👉 Output: **Hello, Maheshwaran 👋**
 
+* * * * *
+
 ### ✅ 2. Embedding Expressions
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML` function MathExample() {    return   2 + 3 = {2 + 3}  ;  } `
+```
+function MathExample() {
+  return <p>2 + 3 = {2 + 3}</p>;
+}
+
+```
 
 👉 Output: **2 + 3 = 5**
 
+* * * * *
+
 ### ✅ 3. Embedding Function Calls
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`` function getGreeting(name) {    return `Hello, ${name}!`;  }  function App() {    return   {getGreeting("Maheshwaran")} ----------------------------  ;  } ``
+```
+function getGreeting(name) {
+  return `Hello, ${name}!`;
+}
+
+function App() {
+  return <h2>{getGreeting("Maheshwaran")}</h2>;
+}
+
+```
 
 👉 Output: **Hello, Maheshwaran!**
 
+* * * * *
+
 ### ✅ 4. Conditional Expressions (Ternary)
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML` function UserStatus({ isLoggedIn }) {    return (        {isLoggedIn ? "Welcome back! 🎉" : "Please log in 🔑"}    );  } `
+```
+function UserStatus({ isLoggedIn }) {
+  return (
+    <p>
+      {isLoggedIn ? "Welcome back! 🎉" : "Please log in 🔑"}
+    </p>
+  );
+}
 
-👉 If isLoggedIn = true → shows “Welcome back! 🎉”👉 Else → shows “Please log in 🔑”
+```
+
+👉 If `isLoggedIn = true` → shows "Welcome back! 🎉"\
+👉 Else → shows "Please log in 🔑"
+
+* * * * *
 
 ### ✅ 5. Rendering Arrays
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML` function Fruits() {    const fruits = ["🍎 Apple", "🍌 Banana", "🍇 Grapes"];    return (        {fruits.map((fruit, index) => (          *   {fruit}        ))}    );  } `
+```
+function Fruits() {
+  const fruits = ["🍎 Apple", "🍌 Banana", "🍇 Grapes"];
+  return (
+    <ul>
+      {fruits.map((fruit, index) => (
+        <li key={index}>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+
+```
 
 👉 Output:
 
-- 🍎 Apple
-- 🍌 Banana
-- 🍇 Grapes
+-   🍎 Apple
 
-# 🔹 4. Rules of Embedding in JSX
+-   🍌 Banana
 
-❌ Cannot write if or for statements directly inside JSX.✅ Use expressions (ternary, map, function calls).✅ Always wrap JavaScript inside { }.
+-   🍇 Grapes
 
-# 🔹 5. Real-Life Analogy 🏡
+* * * * *
 
-- JSX is like a **cake 🎂**.
-- { } are like **pockets inside the cake**.
-- You can put chocolate 🍫 (variables), cream 🍦 (functions), or fruit 🍓 (calculations) inside.
+🔹 4. Rules of Embedding in JSX
+===============================
 
-# 🔹 6. Interview Quick Points
+❌ Cannot write `if` or `for` statements directly inside JSX.\
+✅ Use expressions (ternary, map, function calls).\
+✅ Always wrap JavaScript inside `{ }`.
 
-- Expressions in JSX go inside { }.
-- Valid: variables, function calls, math, ternary, map.
-- Invalid: statements like if, for.
-- Used for **dynamic UI rendering**.
+* * * * *
+
+🔹 5. Real-Life Analogy 🏡
+==========================
+
+-   JSX is like a **cake 🎂**.
+
+-   `{ }` are like **pockets inside the cake**.
+
+-   You can put chocolate 🍫 (variables), cream 🍦 (functions), or fruit 🍓 (calculations) inside.
+
+* * * * *
+
+🔹 6. Interview Quick Points
+============================
+
+-   Expressions in JSX go inside `{ }`.
+
+-   Valid: variables, function calls, math, ternary, `map`.
+
+-   Invalid: statements like `if`, `for`.
+
+-   Used for **dynamic UI rendering**.
+
+* * * * *
 
 ✅ **Summary**
 
-- JSX allows **embedding JavaScript expressions** inside { }.
-- This makes UI **dynamic & interactive**.
-- Most common use cases: **variables, functions, ternary conditions, loops with map()**.
+-   JSX allows **embedding JavaScript expressions** inside `{ }`.
 
-**JSX Attributes** — they’re like **HTML attributes**, but with **React power**.
+-   This makes UI **dynamic & interactive**.
 
-# 🔹 1. What are JSX Attributes?
+-   Most common use cases: **variables, functions, ternary conditions, loops with `map()`**.
 
-- In **JSX**, attributes are written **similar to HTML**, but with **JavaScript expressions**.
-- Syntax:
+* * * * *
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  Content  `
+
+
+**JSX Attributes** --- they're like **HTML attributes**, but with **React power**.
+
+* * * * *
+
+🔹 1. What are JSX Attributes?
+==============================
+
+-   In **JSX**, attributes are written **similar to HTML**, but with **JavaScript expressions**.
+
+-   Syntax:
+
+```
+<tag attributeName={expression}>Content</tag>
+
+```
 
 👉 Difference from HTML:
 
-- In HTML: ![](image.png) (string only).
-- In JSX: ![]({imageURL}) (expression inside { }).
+-   In HTML: `<img src="image.png" />` (string only).
 
-# 🔹 2. Rules for JSX Attributes
+-   In JSX: `<img src={imageURL} />` (expression inside `{ }`).
+
+* * * * *
+
+🔹 2. Rules for JSX Attributes
+==============================
 
 ✅ **CamelCase naming**
 
-- HTML: class, for
-- JSX: className, htmlFor
+-   HTML: `class`, `for`
 
-✅ **Expressions inside { }**
+-   JSX: `className`, `htmlFor`
 
-- You can pass numbers, variables, functions, objects.
+✅ **Expressions inside `{ }`**
+
+-   You can pass numbers, variables, functions, objects.
 
 ✅ **Boolean shorthand**
 
-- If an attribute is true, you can write it without value.
+-   If an attribute is `true`, you can write it without value.
 
-# 🔹 3. Examples
+* * * * *
+
+🔹 3. Examples
+==============
 
 ### ✅ 1. Passing Strings
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  function App() {    return   Hello React 🚀 ==============  ;  }  `
+```
+function App() {
+  return <h1 title="Welcome">Hello React 🚀</h1>;
+}
+
+```
+
+* * * * *
 
 ### ✅ 2. Using Variables
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  function UserProfile() {    const imageURL = "https://via.placeholder.com/150";    return ![Profile]({imageURL});  }  `
+```
+function UserProfile() {
+  const imageURL = "https://via.placeholder.com/150";
+  return <img src={imageURL} alt="Profile" />;
+}
+
+```
+
+* * * * *
 
 ### ✅ 3. Expressions
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  function PriceTag() {    const price = 99;    return   Price: {price > 50 ? "Expensive 💰" : "Cheap 🪙"}  ;  }  `
+```
+function PriceTag() {
+  const price = 99;
+  return <p>Price: {price > 50 ? "Expensive 💰" : "Cheap 🪙"}</p>;
+}
+
+```
+
+* * * * *
 
 ### ✅ 4. Boolean Attributes
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  function Button() {    return Click Me; // disabled = true  }  `
+```
+function Button() {
+  return <button disabled>Click Me</button>; // disabled = true
+}
+
+```
 
 👉 Equivalent to:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  Click Me  `
+```
+<button disabled={true}>Click Me</button>
+
+```
+
+* * * * *
 
 ### ✅ 5. Inline Styling
 
-In JSX, style is not a string but an **object**:
+In JSX, `style` is not a string but an **object**:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  function StyledText() {    return (        Hello Styled React 🎨    );  }  `
+```
+function StyledText() {
+  return (
+    <p style={{ color: "blue", fontSize: "20px" }}>
+      Hello Styled React 🎨
+    </p>
+  );
+}
+
+```
+
+* * * * *
 
 ### ✅ 6. Dynamic Attributes
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  function DynamicLink() {    const link = "https://google.com";    return [Go to Google]({link});  }  `
+```
+function DynamicLink() {
+  const link = "https://google.com";
+  return <a href={link} target="_blank">Go to Google</a>;
+}
 
-# 🔹 4. Real-Life Analogy 🏡
+```
 
-- JSX attributes = **stickers on a box 📦**.
-- Example:
+* * * * *
 
-  - fragile = true (handle carefully)
-  - owner = "Maheshwaran" (label with name)
-  - color = "red" (paint box red)
+🔹 4. Real-Life Analogy 🏡
+==========================
+
+-   JSX attributes = **stickers on a box 📦**.
+
+-   Example:
+
+    -   `fragile = true` (handle carefully)
+
+    -   `owner = "Maheshwaran"` (label with name)
+
+    -   `color = "red"` (paint box red)
 
 They **change how the box behaves or looks**, just like attributes in React.
 
-# 🔹 5. Interview Quick Points
+* * * * *
 
-- JSX attributes look like HTML but use **camelCase**.
-- Values can be **expressions inside { }**.
-- Boolean attributes can be written as shorthand.
-- Inline style in JSX uses an **object**.
-- Special cases: className instead of class, htmlFor instead of for.
+🔹 5. Interview Quick Points
+============================
+
+-   JSX attributes look like HTML but use **camelCase**.
+
+-   Values can be **expressions inside `{ }`**.
+
+-   Boolean attributes can be written as shorthand.
+
+-   Inline `style` in JSX uses an **object**.
+
+-   Special cases: `className` instead of `class`, `htmlFor` instead of `for`.
+
+* * * * *
 
 ✅ **Summary**
 
-- JSX attributes = HTML attributes + JavaScript power.
-- Use { } to pass **variables, functions, expressions**.
-- Supports **boolean shorthand** and **style objects**.
+-   JSX attributes = HTML attributes + JavaScript power.
+
+-   Use `{ }` to pass **variables, functions, expressions**.
+
+-   Supports **boolean shorthand** and **style objects**.
+
+* * * * *
 
 
-**Styling in JSX** — this is where React shines because you get **multiple flexible ways** to style your components.
+**Styling in JSX** --- this is where React shines because you get **multiple flexible ways** to style your components.
+
+* * * * *
 
 🔹 1. Ways to Style in JSX
 ==========================
@@ -165,116 +344,186 @@ They **change how the box behaves or looks**, just like attributes in React.
 React supports **4 main styling techniques**:
 
 1.  **Inline Styles** (using JavaScript objects)
-    
-2.  **CSS Stylesheets** (normal .css files)
-    
+
+2.  **CSS Stylesheets** (normal `.css` files)
+
 3.  **CSS Modules** (scoped, unique class names)
-    
-4.  **Styled Components / CSS-in-JS** (library-based, like styled-components, emotion)
-    
+
+4.  **Styled Components / CSS-in-JS** (library-based, like `styled-components`, `emotion`)
+
+* * * * *
 
 🔹 2. Inline Styles
 ===================
 
-*   In JSX, the style attribute accepts a **JavaScript object**.
-    
-*   Properties use **camelCase** instead of kebab-case.
-    
+-   In JSX, the `style` attribute accepts a **JavaScript object**.
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   function InlineStyle() {    return (        Inline Styled Text 🎨    );  }   `
+-   Properties use **camelCase** instead of kebab-case.
+
+```
+function InlineStyle() {
+  return (
+    <h1 style={{ color: "blue", fontSize: "30px", backgroundColor: "yellow" }}>
+      Inline Styled Text 🎨
+    </h1>
+  );
+}
+
+```
 
 👉 Notice:
 
-*   "font-size" (CSS) → fontSize (JSX).
-    
-*   "background-color" (CSS) → backgroundColor (JSX).
-    
+-   `"font-size"` (CSS) → `fontSize` (JSX).
+
+-   `"background-color"` (CSS) → `backgroundColor` (JSX).
+
+* * * * *
 
 🔹 3. External CSS (Global)
 ===========================
 
-*   Create a .css file (e.g., App.css).
-    
-*   Import it in your component.
-    
+-   Create a `.css` file (e.g., `App.css`).
+
+-   Import it in your component.
 
 **App.css**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   .title {    color: green;    text-align: center;  }   `
+```
+.title {
+  color: green;
+  text-align: center;
+}
+
+```
 
 **App.jsx**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   import "./App.css";  function App() {    return   Styled with CSS File 🌍 =======================  ;  }   `
+```
+import "./App.css";
 
-👉 className is used instead of class.
+function App() {
+  return <h1 className="title">Styled with CSS File 🌍</h1>;
+}
+
+```
+
+👉 `className` is used instead of `class`.
+
+* * * * *
 
 🔹 4. CSS Modules (Scoped CSS)
 ==============================
 
-*   Avoids **class name conflicts** in large apps.
-    
-*   Filename should end with .module.css.
-    
+-   Avoids **class name conflicts** in large apps.
+
+-   Filename should end with `.module.css`.
 
 **Button.module.css**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   .btn {    background-color: purple;    color: white;    padding: 10px;    border-radius: 8px;  }   `
+```
+.btn {
+  background-color: purple;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+```
 
 **Button.jsx**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   import styles from "./Button.module.css";  function Button() {    return Click Me 🎯;  }   `
+```
+import styles from "./Button.module.css";
 
-👉 styles.btn is unique → no global conflict.
+function Button() {
+  return <button className={styles.btn}>Click Me 🎯</button>;
+}
+
+```
+
+👉 `styles.btn` is unique → no global conflict.
+
+* * * * *
 
 🔹 5. Styled Components (CSS-in-JS)
 ===================================
 
-*   A popular library (styled-components) lets you write CSS directly in JavaScript.
-    
+-   A popular library (`styled-components`) lets you write CSS directly in JavaScript.
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML``   import styled from "styled-components";  const Title = styled.h1`    color: orange;    font-size: 28px;  `;  function App() {    return Styled with Styled-Components 🚀;  }   ``
+```
+import styled from "styled-components";
+
+const Title = styled.h1`
+  color: orange;
+  font-size: 28px;
+`;
+
+function App() {
+  return <Title>Styled with Styled-Components 🚀</Title>;
+}
+
+```
 
 👉 Styles are **scoped and dynamic**.
+
+* * * * *
 
 🔹 6. Dynamic Styling
 =====================
 
 You can apply styles **based on conditions**:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   function DynamicStyle({ isActive }) {    return (        {isActive ? "Active ✅" : "Inactive ❌"}    );  }   `
+```
+function DynamicStyle({ isActive }) {
+  return (
+    <p style={{ color: isActive ? "green" : "red" }}>
+      {isActive ? "Active ✅" : "Inactive ❌"}
+    </p>
+  );
+}
 
-👉 If isActive = true → text is green.👉 If isActive = false → text is red.
+```
+
+👉 If `isActive = true` → text is green.\
+👉 If `isActive = false` → text is red.
+
+* * * * *
 
 🔹 7. Real-Life Analogy 🏡
 ==========================
 
-*   Inline styles = writing notes directly on the box with a marker 🖊️.
-    
-*   CSS file = sticking a big label on all boxes 📦.
-    
-*   CSS Modules = giving each box a unique sticker 🎟️ (no mix-ups).
-    
-*   Styled Components = painting the box itself 🎨.
-    
+-   Inline styles = writing notes directly on the box with a marker 🖊️.
+
+-   CSS file = sticking a big label on all boxes 📦.
+
+-   CSS Modules = giving each box a unique sticker 🎟️ (no mix-ups).
+
+-   Styled Components = painting the box itself 🎨.
+
+* * * * *
 
 🔹 8. Interview Quick Points
 ============================
 
-*   Inline styles use **objects with camelCase keys**.
-    
-*   className replaces class in JSX.
-    
-*   CSS Modules ensure **scoped, unique class names**.
-    
-*   Styled Components = popular **CSS-in-JS** library.
-    
-*   Dynamic styling can be applied using **conditions in JSX**.
-    
+-   Inline styles use **objects with camelCase keys**.
+
+-   `className` replaces `class` in JSX.
+
+-   CSS Modules ensure **scoped, unique class names**.
+
+-   Styled Components = popular **CSS-in-JS** library.
+
+-   Dynamic styling can be applied using **conditions in JSX**.
+
+* * * * *
 
 ✅ **Summary**
 
-*   Styling in JSX is flexible: **Inline, External CSS, CSS Modules, Styled Components**.
-    
-*   Use **camelCase** for inline styles.
-    
-*   Prefer **CSS Modules or Styled Components** in large projects to avoid conflicts.
+-   Styling in JSX is flexible: **Inline, External CSS, CSS Modules, Styled Components**.
+
+-   Use **camelCase** for inline styles.
+
+-   Prefer **CSS Modules or Styled Components** in large projects to avoid conflicts.
+
+* * * * *
+
